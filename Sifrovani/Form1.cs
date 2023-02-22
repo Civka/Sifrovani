@@ -38,5 +38,19 @@ namespace Sifrovani
 
             return outputMessage;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text != null)
+            {
+                SifrujBase64();
+            }
+            else
+            {
+                MessageBox.Show("Není co šifrovat");
+            }
+
+            textBox3.Text = DesifrujBase64(textBox2.Text);
+        }
     }
 }
