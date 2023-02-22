@@ -59,9 +59,9 @@ namespace Sifrovani
             {
                 throw new ArgumentException("Zadej něco k zašifrování");
             }
-            if (pass.Length <= 8)
+            if (pass.Length != 8)
             {
-                MessageBox.Show("Heslo musí být dlouhé aspoň 8 znaků!!!!!!");
+                MessageBox.Show("Heslo musí být dlouhé přesně 8 znaků!!!!!!");
                 return "";
             }
 
@@ -87,9 +87,9 @@ namespace Sifrovani
                 MessageBox.Show("Zadejte řetězec k dešifrování.");
                 return "";
             }
-            if (pass.Length <= 8)
+            if (pass.Length != 8)
             {
-                MessageBox.Show("Heslo musí být dlouhé aspoň 8 znaků!!!!!!");
+                MessageBox.Show("Heslo musí být dlouhé přesně 8 znaků!!!!!!");
                 return "";
             }
 
@@ -101,8 +101,12 @@ namespace Sifrovani
             StreamReader streamReader = new StreamReader(cryptoStream);
 
             return streamReader.ReadToEnd();
+        }
 
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox5.Text = SifrujSymetric(textBox4.Text, textBox7.Text);
+            textBox6.Text = DesifrujSymetric(textBox5.Text, textBox7.Text);
 
         }
     }
