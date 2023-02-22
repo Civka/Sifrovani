@@ -52,5 +52,58 @@ namespace Sifrovani
 
             textBox3.Text = DesifrujBase64(textBox2.Text);
         }
+
+        public string SifrujSymetric(string inputMessage, string pass)
+        {
+            if (String.IsNullOrEmpty(inputMessage))
+            {
+                throw new ArgumentException("Zadej něco k zašifrování");
+            }
+            if (pass.Length <= 8)
+            {
+                MessageBox.Show("Heslo musí být dlouhé aspoň 8 znaků!!!!!!");
+                return "";
+            }
+
+            byte[] bytes = ASCIIEncoding.Unicode.GetBytes(pass);
+
+            SymmetricAlgorithm cryptoProvider = SymmetricAlgorithm.Create("TripleDes");
+            MemoryStream memoryStream = new MemoryStream();
+            CryptoStream cryptoStream = new CryptoStream(memoryStream, cryptoProvider.CreateEncryptor(bytes, bytes), CryptoStreamMode.Write);
+            StreamWriter streamWriter = new StreamWriter(cryptoStream);
+
+            streamWriter.Write(inputMessage);
+            streamWriter.Flush();
+            cryptoStream.FlushFinalBlock();
+            streamWriter.Flush();
+
+            return Convert.ToBase64String(memoryStream.GetBuffer(), 0, (int)memoryStream.Length);
+        }
+
+        public string DesifrujSymetric(string cryptedString, string pass)
+        {
+            if (String.IsNullOrEmpty(cryptedString))
+            {
+                MessageBox.Show("Zadejte řetězec k dešifrování.");
+                return "";
+            }
+            if (pass.Length <= 8)
+            {
+                MessageBox.Show("Heslo musí být dlouhé aspoň 8 znaků!!!!!!");
+                return "";
+            }
+
+            byte[] bytes = ASCIIEncoding.Unicode.GetBytes(pass);
+
+            TripleDESCryptoServiceProvider cryptoProvider = new TripleDESCryptoServiceProvider();
+            MemoryStream memoryStream = new MemoryStream(Convert.FromBase64String(cryptedString));
+            CryptoStream cryptoStream = new CryptoStream(memoryStream, cryptoProvider.CreateDecryptor(bytes, bytes), CryptoStreamMode.Read);
+            StreamReader streamReader = new StreamReader(cryptoStream);
+
+            return streamReader.ReadToEnd();
+
+
+
+        }
     }
 }

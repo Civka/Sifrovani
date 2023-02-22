@@ -181,7 +181,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Sifrovani";
             this.tabControl1.ResumeLayout(false);
             this.Base64.ResumeLayout(false);
             this.Base64.PerformLayout();
