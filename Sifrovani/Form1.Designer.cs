@@ -47,7 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.Base64.SuspendLayout();
@@ -187,7 +186,6 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.button5);
-            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.textBox9);
             this.tabPage1.Controls.Add(this.label2);
@@ -231,22 +229,13 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Heslo";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(177, 107);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 53);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Uložit do XML";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(6, 107);
+            this.button5.Location = new System.Drawing.Point(91, 93);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(75, 53);
             this.button5.TabIndex = 5;
-            this.button5.Text = "Uložit do TXT";
+            this.button5.Text = "Uložit";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // Form1
@@ -288,7 +277,6 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label2;

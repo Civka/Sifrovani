@@ -14,9 +14,12 @@ namespace Sifrovani
 {
     public partial class Form1 : Form
     {
+        private Data d = new Data();
+        List<Uzivatele> uzivatele = new List<Uzivatele>();
         public Form1()
         {
             InitializeComponent();
+            
         }
 
         public void SifrujBase64()
