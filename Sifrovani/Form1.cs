@@ -109,5 +109,7 @@ namespace Sifrovani
             textBox6.Text = DesifrujSymetric(textBox5.Text, textBox7.Text);
 
         }
+
+
     }
 }
